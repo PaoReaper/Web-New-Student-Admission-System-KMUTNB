@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบฟอร์มสมัคร | ระบบรับสมัครนักศึกษาใหม่ มจพ.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo_kmutnb.jpg" alt="โลโก้ มจพ." class="navbar-logo">
+        <span class="navbar-brand-text">
+          <span class="brand-code">มจพ. | KMUTNB</span>
+          <span class="brand-name">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</span>
+        </span>
+      </a>
+      <div class="navbar-right">
+        <nav class="navbar-menu">
+          <a class="nav-link" href="index.html">หน้าแรก</a>
+          <a class="nav-link" href="guide.html">คู่มือการสมัคร</a>
+          <a class="nav-link" href="announcement.html">ประกาศ/ผลการคัดเลือก</a>
+          <a class="nav-link" href="contact.html">ติดต่อสอบถาม</a>
+        </nav>
+        <div class="navbar-actions" id="navbarActions"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container apply-page">
+    <div class="apply-layout">
+
+      <aside class="card apply-sidebar">
+        <h2 class="sidebar-title">ขั้นตอนการสมัคร</h2>
+
+        <div class="side-step active" data-step="1">
+          <span class="side-dot">1</span>
+          <span class="side-label">ข้อมูลส่วนตัว</span>
+        </div>
+        <div class="side-step" data-step="2">
+          <span class="side-dot">2</span>
+          <span class="side-label">การศึกษา</span>
+        </div>
+        <div class="side-step" data-step="3">
+          <span class="side-dot">3</span>
+          <span class="side-label">สาขาที่สมัคร</span>
+        </div>
+        <div class="side-step" data-step="4">
+          <span class="side-dot">4</span>
+          <span class="side-label">เอกสาร</span>
+        </div>
+      </aside>
+
+      <div class="apply-content">
+
+        <!-- ขั้น 1: ข้อมูลส่วนตัว -->
+        <section class="card form-step active" id="step1">
+          <div class="step-head">
+            <div>
+              <h2 class="section-title">กรอกข้อมูลส่วนตัวผู้สมัคร</h2>
+              <p class="section-desc">กรุณาระบุข้อมูลส่วนตัวให้ครบถ้วนเพื่อใช้ในการพิจารณาตรวจสอบสิทธิ์</p>
+            </div>
+            <!-- แสดงความก้าวหน้าการกรอกข้อมูล คำนวณด้วย JavaScript -->
+            <div class="progress">
+              <span class="progress-label">ความก้าวหน้าการกรอกข้อมูล: <strong id="progressPercent">0%</strong></span>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row cols-3">
+            <div class="form-group">
+              <label class="form-label" for="title">คำนำหน้านาม <span class="required">*</span></label>
+              <select class="form-control" id="title">
+                <option value="">-- เลือก --</option>
+                <option value="นาย">นาย</option>
+                <option value="นาง">นาง</option>
+                <option value="นางสาว">นางสาว</option>
+              </select>
+              <p class="form-error" id="titleError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="firstName">ชื่อตัว <span class="required">*</span></label>
+              <input class="form-control" type="text" id="firstName" placeholder="กรอกชื่อตัว">
+              <p class="form-error" id="firstNameError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">นามสกุล <span class="required">*</span></label>
+              <input class="form-control" type="text" id="lastName" placeholder="กรอกนามสกุล">
+              <p class="form-error" id="lastNameError"></p>
+            </div>
+          </div>
+
+          <div class="form-row cols-3">
+            <div class="form-group">
+              <label class="form-label" for="birthDate">วัน/เดือน/ปีเกิด <span class="required">*</span></label>
+              <input class="form-control" type="date" id="birthDate">
+              <p class="form-hint">เลือกวันเกิดจากปฏิทิน (ปี ค.ศ. เช่น 2008 = พ.ศ. 2551)</p>
+              <p class="form-error" id="birthDateError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nationality">สัญชาติ <span class="required">*</span></label>
+              <select class="form-control" id="nationality">
+                <option value="">-- เลือก --</option>
+                <option value="ไทย">ไทย</option>
+                <option value="อื่นๆ">อื่นๆ</option>
+              </select>
+              <p class="form-error" id="nationalityError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="religion">ศาสนา <span class="required">*</span></label>
+              <select class="form-control" id="religion">
+                <option value="">-- เลือก --</option>
+                <option value="พุทธ">พุทธ</option>
+                <option value="คริสต์">คริสต์</option>
+                <option value="อิสลาม">อิสลาม</option>
+                <option value="อื่นๆ">อื่นๆ</option>
+              </select>
+              <p class="form-error" id="religionError"></p>
+            </div>
+          </div>
+
+          <div class="form-row cols-2">
+            <div class="form-group">
+              <label class="form-label" for="phone">เบอร์โทรศัพท์ผู้สมัคร <span class="required">*</span></label>
+              <input class="form-control" type="text" id="phone" maxlength="10" placeholder="0XXXXXXXXX">
+              <p class="form-error" id="phoneError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">อีเมลสำหรับติดต่อ <span class="required">*</span></label>
+              <input class="form-control" type="text" id="email" placeholder="example@email.com">
+              <p class="form-error" id="emailError"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="address">ที่อยู่ปัจจุบันที่ติดต่อได้ <span class="required">*</span></label>
+              <textarea class="form-control" id="address" rows="3" placeholder="กรอกบ้านเลขที่ ซอย ถนน แขวง เขต จังหวัด รหัสไปรษณีย์"></textarea>
+              <p class="form-error" id="addressError"></p>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" id="saveDraftBtn">บันทึกร่าง</button>
+            <button class="btn btn-primary" type="button" id="nextFromStep1">ถัดไป</button>
+          </div>
+        </section>
+
+
+        <!-- ขั้น 2: การศึกษา -->
+        <section class="card form-step" id="step2">
+          <div class="step-head">
+            <div>
+              <h2 class="section-title">ข้อมูลการศึกษา</h2>
+              <p class="section-desc">กรุณาระบุข้อมูลสถานศึกษาที่สำเร็จการศึกษา เพื่อใช้ประกอบการพิจารณา</p>
+            </div>
+          </div>
+
+          <div class="form-row cols-2">
+            <div class="form-group">
+              <label class="form-label" for="schoolName">ชื่อโรงเรียน <span class="required">*</span></label>
+              <input class="form-control" type="text" id="schoolName" placeholder="กรอกชื่อโรงเรียน">
+              <p class="form-error" id="schoolNameError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="schoolProvince">จังหวัดของโรงเรียน <span class="required">*</span></label>
+              <input class="form-control" type="text" id="schoolProvince" placeholder="เช่น กรุงเทพมหานคร">
+              <p class="form-error" id="schoolProvinceError"></p>
+            </div>
+          </div>
+
+          <div class="form-row cols-3">
+            <div class="form-group">
+              <label class="form-label" for="educationLevel">ระดับการศึกษา <span class="required">*</span></label>
+              <select class="form-control" id="educationLevel">
+                <option value="">-- เลือก --</option>
+                <option value="มัธยมศึกษาตอนปลาย">มัธยมศึกษาตอนปลาย (ม.6)</option>
+                <option value="ประกาศนียบัตรวิชาชีพ">ประกาศนียบัตรวิชาชีพ (ปวช.)</option>
+                <option value="ประกาศนียบัตรวิชาชีพชั้นสูง">ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</option>
+              </select>
+              <p class="form-error" id="educationLevelError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="studyPlan">แผนการเรียน / สายการเรียน <span class="required">*</span></label>
+              <select class="form-control" id="studyPlan">
+                <option value="">-- เลือก --</option>
+                <option value="วิทยาศาสตร์-คณิตศาสตร์">วิทยาศาสตร์-คณิตศาสตร์</option>
+                <option value="วิทยาศาสตร์-คณิตศาสตร์ (ห้องเรียนพิเศษ SMTE)">วิทยาศาสตร์-คณิตศาสตร์ (ห้องเรียนพิเศษ SMTE)</option>
+                <option value="คณิตศาสตร์-คอมพิวเตอร์">คณิตศาสตร์-คอมพิวเตอร์</option>
+                <option value="วิทยาศาสตร์-คณิตศาสตร์-คอมพิวเตอร์">วิทยาศาสตร์-คณิตศาสตร์-คอมพิวเตอร์</option>
+                <option value="วิทยาศาสตร์-คณิตศาสตร์ (ภาษาอังกฤษ)">วิทยาศาสตร์-คณิตศาสตร์ (ภาษาอังกฤษ)</option>
+                <option value="English Program (EP)">English Program (EP)</option>
+                <option value="คณิตศาสตร์-ภาษาอังกฤษ">คณิตศาสตร์-ภาษาอังกฤษ</option>
+                <option value="ศิลปศาสตร์-คณิตศาสตร์">ศิลปศาสตร์-คณิตศาสตร์</option>
+                <option value="ศิลปศาสตร์-ภาษา">ศิลปศาสตร์-ภาษา</option>
+                <option value="ศิลปศาสตร์-สังคมศึกษา">ศิลปศาสตร์-สังคมศึกษา</option>
+                <option value="ภาษาต่างประเทศ (จีน)">ภาษาต่างประเทศ (จีน)</option>
+                <option value="ภาษาต่างประเทศ (ญี่ปุ่น)">ภาษาต่างประเทศ (ญี่ปุ่น)</option>
+                <option value="ภาษาต่างประเทศ (เกาหลี)">ภาษาต่างประเทศ (เกาหลี)</option>
+                <option value="ภาษาต่างประเทศ (ฝรั่งเศส/เยอรมัน)">ภาษาต่างประเทศ (ฝรั่งเศส/เยอรมัน)</option>
+                <option value="ทัศนศิลป์">ทัศนศิลป์</option>
+                <option value="ดนตรี-นาฏศิลป์">ดนตรี-นาฏศิลป์</option>
+                <option value="กีฬา-วิทยาศาสตร์การกีฬา">กีฬา-วิทยาศาสตร์การกีฬา</option>
+                <option value="การงานอาชีพและเทคโนโลยี">การงานอาชีพและเทคโนโลยี</option>
+                <option value="วิชาชีพ (ปวช./ปวส.)">วิชาชีพ (ปวช./ปวส.)</option>
+                <option value="อื่นๆ">อื่น ๆ (โปรดระบุ)</option>
+              </select>
+              <p class="form-error" id="studyPlanError"></p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gpax">เกรดเฉลี่ยสะสม (GPAX) <span class="required">*</span></label>
+              <input class="form-control" type="text" id="gpax" placeholder="เช่น 3.25">
+              <p class="form-error" id="gpaxError"></p>
+            </div>
+          </div>
+
+          <!-- แสดงเฉพาะเมื่อเลือกแผนการเรียน "อื่น ๆ" (ควบคุมด้วย JavaScript) -->
+          <div class="form-row" id="studyPlanOtherGroup" hidden>
+            <div class="form-group">
+              <label class="form-label" for="studyPlanOther">ระบุแผนการเรียนอื่น ๆ <span class="required">*</span></label>
+              <input class="form-control" type="text" id="studyPlanOther" placeholder="กรอกชื่อแผนการเรียน / สายการเรียนของคุณ">
+              <p class="form-error" id="studyPlanOtherError"></p>
+            </div>
+          </div>
+
+          <div class="form-row cols-2">
+            <div class="form-group">
+              <label class="form-label" for="graduationYear">ปีที่จบการศึกษา (พ.ศ.) <span class="required">*</span></label>
+              <input class="form-control" type="text" id="graduationYear" maxlength="4" placeholder="เช่น 2569">
+              <p class="form-error" id="graduationYearError"></p>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" data-back="1">ย้อนกลับ</button>
+            <button class="btn btn-primary" type="button" id="nextFromStep2">ถัดไป</button>
+          </div>
+        </section>
+
+
+        <!-- ขั้น 3: สาขาที่สมัคร -->
+        <section class="card form-step" id="step3">
+          <div class="step-head">
+            <div>
+              <h2 class="section-title">เลือกคณะและสาขาวิชาที่สมัคร</h2>
+              <p class="section-desc">สามารถเลือกได้ 3 อันดับ โดยอันดับ 1 จำเป็นต้องระบุ</p>
+            </div>
+          </div>
+
+          <div class="rank-block">
+            <p class="rank-title">อันดับ 1 <span class="required">*</span></p>
+            <div class="form-row cols-3">
+              <div class="form-group">
+                <label class="form-label" for="campus1">วิทยาเขต <span class="required">*</span></label>
+                <select class="form-control campus-select" id="campus1" data-rank="1">
+                  <option value="">-- เลือกวิทยาเขต --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="faculty1">คณะ</label>
+                <select class="form-control faculty-select" id="faculty1" data-rank="1">
+                  <option value="">-- เลือกคณะ --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="program1">สาขาวิชา / ภาควิชา</label>
+                <select class="form-control program-select" id="program1">
+                  <option value="">-- เลือกสาขาวิชา --</option>
+                </select>
+                <p class="form-error" id="program1Error"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rank-block">
+            <p class="rank-title">อันดับ 2</p>
+            <div class="form-row cols-3">
+              <div class="form-group">
+                <label class="form-label" for="campus2">วิทยาเขต</label>
+                <select class="form-control campus-select" id="campus2" data-rank="2">
+                  <option value="">-- เลือกวิทยาเขต --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="faculty2">คณะ</label>
+                <select class="form-control faculty-select" id="faculty2" data-rank="2">
+                  <option value="">-- เลือกคณะ --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="program2">สาขาวิชา / ภาควิชา</label>
+                <select class="form-control program-select" id="program2">
+                  <option value="">-- เลือกสาขาวิชา --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="rank-block">
+            <p class="rank-title">อันดับ 3</p>
+            <div class="form-row cols-3">
+              <div class="form-group">
+                <label class="form-label" for="campus3">วิทยาเขต</label>
+                <select class="form-control campus-select" id="campus3" data-rank="3">
+                  <option value="">-- เลือกวิทยาเขต --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="faculty3">คณะ</label>
+                <select class="form-control faculty-select" id="faculty3" data-rank="3">
+                  <option value="">-- เลือกคณะ --</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="program3">สาขาวิชา / ภาควิชา</label>
+                <select class="form-control program-select" id="program3">
+                  <option value="">-- เลือกสาขาวิชา --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" data-back="2">ย้อนกลับ</button>
+            <button class="btn btn-primary" type="button" id="nextFromStep3">ถัดไป</button>
+          </div>
+        </section>
+
+
+        <!-- ขั้น 4: เอกสาร -->
+        <section class="card form-step" id="step4">
+          <div class="step-head">
+            <div>
+              <h2 class="section-title">อัปโหลดเอกสารประกอบการสมัคร</h2>
+              <p class="section-desc">โปรดตรวจสอบความคมชัดและสมบูรณ์ของเอกสารให้ถูกต้อง ก่อนกดยืนยันการส่งใบสมัคร</p>
+            </div>
+          </div>
+
+          <div class="upload-card">
+            <div class="upload-info">
+              <h3 class="upload-name">บัตรประจำตัวประชาชน <span class="required">(จำเป็น)</span></h3>
+              <p class="upload-hint">เฉพาะไฟล์ PDF ขนาดไม่เกิน 5 MB</p>
+            </div>
+            <div class="upload-right">
+              <span class="badge badge-danger" id="badgeIdCard">ยังไม่ได้อัปโหลด</span>
+              <span class="upload-filename" id="nameIdCard"></span>
+              <input class="file-input" type="file" id="fileIdCard" accept=".pdf">
+              <label class="btn btn-outline btn-sm" for="fileIdCard">เลือกไฟล์</label>
+            </div>
+          </div>
+
+          <div class="upload-card">
+            <div class="upload-info">
+              <h3 class="upload-name">สำเนาทะเบียนบ้าน <span class="required">(จำเป็น)</span></h3>
+              <p class="upload-hint">เฉพาะไฟล์ PDF ขนาดไม่เกิน 5 MB</p>
+            </div>
+            <div class="upload-right">
+              <span class="badge badge-danger" id="badgeHouseReg">ยังไม่ได้อัปโหลด</span>
+              <span class="upload-filename" id="nameHouseReg"></span>
+              <input class="file-input" type="file" id="fileHouseReg" accept=".pdf">
+              <label class="btn btn-outline btn-sm" for="fileHouseReg">เลือกไฟล์</label>
+            </div>
+          </div>
+
+          <div class="upload-card">
+            <div class="upload-info">
+              <h3 class="upload-name">ใบแสดงผลการศึกษา (ปพ.1) <span class="required">(จำเป็น)</span></h3>
+              <p class="upload-hint">เฉพาะไฟล์ PDF หรือภาพถ่าย JPG ขนาดไม่เกิน 10 MB</p>
+            </div>
+            <div class="upload-right">
+              <span class="badge badge-danger" id="badgeTranscript">ยังไม่ได้อัปโหลด</span>
+              <span class="upload-filename" id="nameTranscript"></span>
+              <input class="file-input" type="file" id="fileTranscript" accept=".pdf,.jpg,.jpeg">
+              <label class="btn btn-outline btn-sm" for="fileTranscript">เลือกไฟล์</label>
+            </div>
+          </div>
+
+          <div class="upload-card">
+            <div class="upload-info">
+              <h3 class="upload-name">รูปถ่ายนักศึกษา (หน้าตรง ชุดสุภาพ) <span class="required">(จำเป็น)</span></h3>
+              <p class="upload-hint">เฉพาะไฟล์ภาพ JPG/PNG ขนาดไม่เกิน 2 MB</p>
+            </div>
+            <div class="upload-right">
+              <span class="badge badge-danger" id="badgePhoto">ยังไม่ได้อัปโหลด</span>
+              <span class="upload-filename" id="namePhoto"></span>
+              <input class="file-input" type="file" id="filePhoto" accept=".jpg,.jpeg,.png">
+              <label class="btn btn-outline btn-sm" for="filePhoto">เลือกไฟล์</label>
+            </div>
+          </div>
+
+          <div class="alert alert-danger" id="uploadAlert" hidden></div>
+
+          <div class="step-actions">
+            <button class="btn btn-outline" type="button" data-back="3">ย้อนกลับ</button>
+            <button class="btn btn-primary" type="button" id="submitApplicationBtn" disabled>ยืนยันการส่งใบสมัคร</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h3 class="footer-title">กลุ่มงานรับสมัครนักศึกษาใหม่ มจพ.</h3>
+        <p>1518 ถนนประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800</p>
+        <p>โทรศัพท์: 0-2555-2000 ต่อ 1626-1627</p>
+      </div>
+      <div class="footer-social">
+        <a class="social-btn" href="https://www.facebook.com/admission.kmutnb?locale=th_TH" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24v2.2H7.4V13h2.7v8h3.4z"/>
+          </svg>
+        </a>
+        <a class="social-btn" href="https://www.kmutnb.ac.th" target="_blank" rel="noopener" aria-label="Website">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"></circle>
+            <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ สงวนลิขสิทธิ์ระบบรับสมัครนักศึกษาออนไลน์</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/apply.js"></script>
+</body>
+</html>
+

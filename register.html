@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ลงทะเบียน | ระบบรับสมัครนักศึกษาใหม่ มจพ.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo_kmutnb.jpg" alt="โลโก้ มจพ." class="navbar-logo">
+        <span class="navbar-brand-text">
+          <span class="brand-code">มจพ. | KMUTNB</span>
+          <span class="brand-name">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</span>
+        </span>
+      </a>
+      <div class="navbar-right">
+        <nav class="navbar-menu">
+          <a class="nav-link" href="index.html">หน้าแรก</a>
+          <a class="nav-link" href="guide.html">คู่มือการสมัคร</a>
+          <a class="nav-link" href="announcement.html">ประกาศ/ผลการคัดเลือก</a>
+          <a class="nav-link" href="contact.html">ติดต่อสอบถาม</a>
+        </nav>
+        <div class="navbar-actions" id="navbarActions"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <div class="card auth-card auth-card-wide">
+      <h1 class="auth-title">ลงทะเบียนเข้าใช้งาน</h1>
+      <p class="auth-desc">กรุณากรอกข้อมูลจริงเพื่อใช้ในการสมัครรับคัดเลือกนักศึกษาใหม่</p>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="citizenId">เลขบัตรประจำตัวประชาชน <span class="required">*</span></label>
+          <input class="form-control" type="text" id="citizenId" maxlength="13" placeholder="กรอกเลขบัตร 13 หลัก">
+          <p class="form-error" id="citizenIdError"></p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="fullname">ชื่อ-นามสกุล (ภาษาไทย) <span class="required">*</span></label>
+          <input class="form-control" type="text" id="fullname" placeholder="ไม่ต้องระบุคำนำหน้านาม">
+          <p class="form-error" id="fullnameError"></p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">อีเมลสำหรับติดต่อ <span class="required">*</span></label>
+          <input class="form-control" type="text" id="email" placeholder="example@email.com">
+          <p class="form-error" id="emailError"></p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">เบอร์โทรศัพท์มือถือ <span class="required">*</span></label>
+          <input class="form-control" type="text" id="phone" maxlength="10" placeholder="0XXXXXXXXX">
+          <p class="form-error" id="phoneError"></p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">รหัสผ่าน <span class="required">*</span></label>
+          <input class="form-control" type="password" id="password" placeholder="ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษร">
+          <p class="form-error" id="passwordError"></p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirmPassword">ยืนยันรหัสผ่าน <span class="required">*</span></label>
+          <input class="form-control" type="password" id="confirmPassword" placeholder="กรอกรหัสผ่านอีกครั้ง">
+          <p class="form-error" id="confirmPasswordError"></p>
+        </div>
+
+        <button class="btn btn-primary btn-block btn-lg" type="submit">ลงทะเบียน</button>
+      </form>
+
+      <p class="register-note">มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <h3 class="footer-title">กลุ่มงานรับสมัครนักศึกษาใหม่ มจพ.</h3>
+        <p>1518 ถนนประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800</p>
+        <p>โทรศัพท์: 0-2555-2000 ต่อ 1626-1627</p>
+      </div>
+      <div class="footer-social">
+        <a class="social-btn" href="https://www.facebook.com/admission.kmutnb?locale=th_TH" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24v2.2H7.4V13h2.7v8h3.4z"/>
+          </svg>
+        </a>
+        <a class="social-btn" href="https://www.kmutnb.ac.th" target="_blank" rel="noopener" aria-label="Website">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"></circle>
+            <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ สงวนลิขสิทธิ์ระบบรับสมัครนักศึกษาออนไลน์</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

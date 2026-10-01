@@ -1,0 +1,344 @@
+/* style.css : ค่าพื้นฐานที่ใช้ร่วมกันทุกหน้า
+   (ตัวแปรสี / reset / ปุ่ม / ฟอร์ม / การ์ด / badge / alert) */
+
+/* ตัวแปรสีและค่าต่าง ๆ ของทั้งเว็บ */
+:root {
+  /* สีหลักของมหาวิทยาลัย (แดงเลือดหมู) */
+  --color-primary: #8B0000;
+  --color-primary-dark: #6B0000;
+  --color-primary-soft: #FBE9E9;
+
+  /* สีพื้นหลังและตัวอักษร */
+  --color-bg: #F3F4F6;
+  --color-card: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-text: #1F2937;
+  --color-text-light: #6B7280;
+
+  /* สี footer (กรมท่าเข้ม) */
+  --color-footer: #1F2430;
+  --color-footer-text: #D1D5DB;
+
+  /* สีสถานะ */
+  --color-success: #16A34A;
+  --color-success-bg: #DCFCE7;
+  --color-warning: #B45309;
+  --color-warning-bg: #FEF3C7;
+  --color-danger: #DC2626;
+  --color-gray-bg: #E5E7EB;
+
+  /* มุมโค้ง เงา และความกว้างสูงสุดของเนื้อหา */
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --container: 1200px;
+}
+
+/* Reset พื้นฐาน */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* โครงหน้า/กล่องเนื้อหา */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ปุ่ม */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* ปุ่มหลัก : พื้นแดงเข้ม ตัวอักษรขาว */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ปุ่มรอง : พื้นขาว ขอบแดง ตัวอักษรแดง */
+.btn-outline {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary-soft);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 13px 28px;
+  font-size: 16px;
+}
+
+.btn-sm {
+  padding: 7px 14px;
+  font-size: 14px;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* การ์ด */
+.card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--color-text);
+}
+
+/* หัวข้อ / คำอธิบาย */
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  color: var(--color-text-light);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* ฟอร์ม */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form-row > .form-group {
+  flex: 1 1 100%;
+}
+
+/* แถวแบบ 3 คอลัมน์ */
+.form-row.cols-3 > .form-group {
+  flex: 1 1 180px;
+}
+
+/* แถวแบบ 2 คอลัมน์ */
+.form-row.cols-2 > .form-group {
+  flex: 1 1 240px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ดอกจันสีแดงหน้าฟิลด์บังคับ */
+.required {
+  color: var(--color-danger);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--color-text);
+  background-color: #FFFFFF;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.form-control::placeholder {
+  color: #9CA3AF;
+}
+
+/* ข้อความช่วยอธิบายใต้ช่องกรอก */
+.form-hint {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin-top: 4px;
+}
+
+/* ข้อความ error ใต้ช่องกรอก (ซ่อนไว้ก่อน) */
+.form-error {
+  display: none;
+  color: var(--color-danger);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.form-error.show {
+  display: block;
+}
+
+.form-control.input-error {
+  border-color: var(--color-danger);
+}
+
+/* ทำให้ attribute hidden ซ่อนได้จริง แม้ element นั้นถูกตั้ง display: flex ไว้ */
+[hidden] {
+  display: none !important;
+}
+
+/* ซ่อนช่องเลือกไฟล์ (ใช้ label แทนปุ่ม) */
+.file-input {
+  display: none;
+}
+
+/* Badge สถานะ */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ชมพูอ่อน ตัวแดง (ยังไม่ได้อัปโหลด) */
+.badge-danger {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* เขียวอ่อน ตัวเขียว (สำเร็จ) */
+.badge-success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+/* เหลืองอ่อน (รอตรวจสอบ) */
+.badge-warning {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+/* กล่องแจ้งเตือน */
+.alert {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.alert-danger {
+  background-color: #FEE2E2;
+  color: #991B1B;
+}
+
+/* Utility เล็ก ๆ น้อย ๆ */
+.text-center {
+  text-align: center;
+}
+
+/* แถบความก้าวหน้า (progress bar) */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.progress-bar {
+  width: 150px;
+  height: 8px;
+  background-color: var(--color-gray-bg);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* Responsive ทั่วไป (จอเล็ก) */
+@media (max-width: 640px) {
+  .card {
+    padding: 18px;
+  }
+
+  .section-title {
+    font-size: 19px;
+  }
+
+  .btn-lg {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}
+

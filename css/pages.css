@@ -1,0 +1,686 @@
+/* pages.css : สไตล์เฉพาะของแต่ละหน้า
+   (hero / ขั้นตอน / login-register / ฟอร์มสมัคร / สถานะ / placeholder) */
+
+/* 1) หน้าแรก (index.html) */
+
+/* Hero */
+.hero {
+  background-color: var(--color-bg);
+  padding: 64px 16px 56px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  max-width: 860px;
+  margin: 0 auto 12px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-primary);
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  margin-bottom: 26px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ส่วนขั้นตอนการรับสมัคร */
+.steps {
+  padding-bottom: 48px;
+}
+
+.steps-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.step-card {
+  position: relative;
+  flex: 1 1 220px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+}
+
+/* ตัวเลขในวงกลมสีชมพูอ่อน ตัวอักษรแดง */
+.step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.step-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.step-text {
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+/* ลูกศรชี้ไปการ์ดถัดไป (มุมขวาบน) */
+.step-arrow {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 22px;
+  color: var(--color-border);
+}
+
+/* 2) หน้าเข้าสู่ระบบ / ลงทะเบียน (login.html, register.html) */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+}
+
+.auth-card-wide {
+  max-width: 560px;
+}
+
+.auth-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.auth-desc {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-bottom: 22px;
+}
+
+/* แถวล่างของการ์ด : ลิงก์ซ้าย-ขวา */
+.auth-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.auth-footer .muted-link {
+  color: var(--color-text-light);
+}
+
+/* กล่องแจ้งเตือนใต้ฟอร์มเข้าสู่ระบบ */
+.auth-alert {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.register-note {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.register-note a {
+  font-weight: 600;
+}
+
+/* 3) หน้าฟอร์มสมัคร (apply.html) */
+.apply-page {
+  padding: 32px 16px 56px;
+}
+
+/* จัดวางแบบ 2 คอลัมน์ : sidebar + ฟอร์ม */
+.apply-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.apply-sidebar {
+  flex: 0 0 260px;
+}
+
+.apply-content {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.sidebar-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* รายการขั้นตอนใน sidebar */
+.side-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+}
+
+/* ขั้นที่กำลังทำอยู่ : พื้นชมพูอ่อน */
+.side-step.active {
+  background-color: var(--color-primary-soft);
+}
+
+.side-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: #FFFFFF;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* วงกลมของขั้นปัจจุบัน : ตัวอักษรแดง */
+.side-step.active .side-dot {
+  background-color: var(--color-primary-soft);
+  border-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* วงกลมของขั้นที่ทำเสร็จแล้ว : สีเขียวมีเครื่องหมายถูก */
+.side-step.done .side-dot {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+  color: #FFFFFF;
+}
+
+.side-label {
+  font-size: 14px;
+}
+
+.side-step.active .side-label {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* แสดงเฉพาะขั้นตอนที่กำลังเปิดอยู่ */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.step-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.step-head .section-desc {
+  margin-bottom: 0;
+}
+
+/* ปุ่มล่างของการ์ดแต่ละขั้น */
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* กล่องของแต่ละอันดับสาขาวิชา */
+.rank-block {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 16px 4px;
+  margin-bottom: 16px;
+}
+
+.rank-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+/* การ์ดอัปโหลดเอกสาร */
+.upload-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.upload-name {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.upload-hint {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+.upload-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.upload-filename {
+  font-size: 13px;
+  color: var(--color-success);
+}
+
+/* Responsive : หน้าฟอร์มสมัคร */
+@media (max-width: 900px) {
+  .apply-layout {
+    flex-direction: column;
+  }
+
+  .apply-sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+
+/* 4) หน้าสถานะใบสมัคร (status.html) */
+.status-page {
+  padding: 32px 16px 56px;
+}
+
+/* การ์ดด้านบน : เลขที่ใบสมัคร + ปุ่มพิมพ์ */
+.status-top-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.status-no-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.status-no {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.status-sub {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+/* เนื้อหา 2 คอลัมน์ */
+.status-grid {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.status-left {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.status-right {
+  flex: 1 1 320px;
+}
+
+/* แถวอันดับสาขาวิชา */
+.rank-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.rank-no {
+  flex: 0 0 64px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.rank-detail {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ชื่อสาขาวิชาที่เลือก */
+.rank-program {
+  font-weight: 500;
+}
+
+/* บรรทัดรอง : วิทยาเขต / คณะ / ภาควิชา */
+.rank-meta {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+/* แถวข้อมูลทั่วไป (label - value) */
+.info-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.info-label {
+  flex: 0 0 180px;
+  color: var(--color-text-light);
+}
+
+.info-value {
+  flex: 1 1 auto;
+}
+
+/* Timeline ความคืบหน้า */
+.timeline {
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 34px;
+  padding-bottom: 28px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* เส้นเชื่อมระหว่างจุด */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 24px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* จุดสีเขียว (เสร็จแล้ว) */
+.timeline-dot.done {
+  background-color: var(--color-success);
+}
+
+/* จุดสีเหลืองส้ม (กำลังดำเนินการ) */
+.timeline-dot.pending {
+  background-color: #F59E0B;
+}
+
+/* จุดสีเทา (รอดำเนินการ) */
+.timeline-dot.wait {
+  background-color: #D1D5DB;
+}
+
+.timeline-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.timeline-text {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+/* 5) หน้า placeholder : ชำระเงิน (payment.html) */
+.placeholder-page {
+  padding: 56px 16px;
+}
+
+.placeholder-card {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.placeholder-card .btn {
+  margin-top: 8px;
+}
+
+/* สถานะว่าง : ยังไม่มีข้อมูล/ประกาศ */
+.empty-state {
+  padding: 28px 16px;
+}
+
+.empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.empty-text {
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+/* 6) หน้าคู่มือการสมัคร (guide.html) */
+.guide-page {
+  padding: 40px 16px 56px;
+}
+
+.guide-card {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.guide-video-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* กล่องวิดีโอ : รักษาสัดส่วน 16:9 และยืดหยุ่นตามความกว้างจอ */
+.video-box {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 9 / 16 = 0.5625 */
+  background-color: #000000;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.video-box iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.guide-note {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+/* 7) หน้าติดต่อสอบถาม (contact.html) */
+.contact-page {
+  padding: 40px 16px 56px;
+}
+
+.contact-card {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* แถวข้อมูลติดต่อ : หัวข้อ + รายละเอียด */
+.contact-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-label {
+  flex: 0 0 130px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+.contact-value {
+  flex: 1 1 320px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* ไม่ให้ไอคอนในปุ่มถูกบีบจนผิดรูป */
+.contact-actions .btn svg {
+  flex-shrink: 0;
+}
+
+/* 8) Responsive รวมทุกหน้า */
+@media (max-width: 900px) {
+  .hero {
+    padding: 44px 16px 40px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 21px;
+  }
+
+  .status-top-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .print-btn {
+    width: 100%;
+  }
+
+  .info-label {
+    flex: 1 1 100%;
+  }
+
+  /* หน้าจอเล็ก : ให้หัวข้อกับรายละเอียดของข้อมูลติดต่อซ้อนกัน */
+  .contact-label {
+    flex: 1 1 100%;
+  }
+
+  .guide-page,
+  .contact-page {
+    padding: 24px 16px 40px;
+  }
+
+  .upload-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .upload-right {
+    width: 100%;
+  }
+}
+
