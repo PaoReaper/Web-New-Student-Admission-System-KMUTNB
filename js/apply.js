@@ -438,7 +438,7 @@ function loadDraft() {
 
 /* ส่วนที่ 6 : ตัวเลือกวิทยาเขต / คณะ / สาขาวิชา */
 
-/* เติมรายชื่อวิทยาเขตลงใน select ทั้ง 3 อันดับ */
+/* เติมรายชื่อวิทยาเขตลงใน select ทั้ง 3 อันดับ และผูก event ให้ช่องวิทยาเขต/คณะ */
 function setupAcademicSelects() {
   var campusSelects = document.querySelectorAll('.campus-select');
 
@@ -453,6 +453,12 @@ function setupAcademicSelects() {
     }
 
     select.addEventListener('change', handleCampusChange);
+  }
+
+  // ผูก event ให้ช่องคณะ เพื่อเติมสาขาวิชาเมื่อเลือกคณะ (ส่วนที่แก้ไข)
+  var facultySelects = document.querySelectorAll('.faculty-select');
+  for (var k = 0; k < facultySelects.length; k++) {
+    facultySelects[k].addEventListener('change', handleFacultyChange);
   }
 }
 
@@ -773,4 +779,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('submitApplicationBtn').addEventListener('click', submitApplication);
 });
-
