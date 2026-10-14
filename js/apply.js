@@ -738,12 +738,14 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  prefillPersonalData();
+  // เติม dropdown ก่อนเสมอ เพื่อไม่ให้ error ส่วนอื่นมาขวาง
   setupAcademicSelects();
   setupStudyPlanField();
-  loadDraft();
   setupUploads();
-  updateProgress();
+
+  try { prefillPersonalData(); } catch (e) { console.error('prefill:', e); }
+  try { loadDraft(); } catch (e) { console.error('loadDraft:', e); }
+  try { updateProgress(); } catch (e) { console.error('progress:', e); }
 
   var step1 = document.getElementById('step1');
   step1.addEventListener('input', updateProgress);
